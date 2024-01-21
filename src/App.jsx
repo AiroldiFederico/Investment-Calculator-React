@@ -5,6 +5,7 @@ import { useState } from "react";
 //import
 import "./style/App.css";
 import Calculator from "./components/Calculator";
+import Table from "./components/Table";
 
 
 
@@ -17,7 +18,7 @@ function App() {
         <h1 className="font-sans text-4xl font-black text-zinc-300">Investment Calculator</h1>
 
         <Calculator></Calculator>
-        <div className="w-[30rem] h-[10rem] bg-slate-800"></div>
+        <Table/>
 
 
       </main>
