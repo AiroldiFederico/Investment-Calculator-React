@@ -8,8 +8,21 @@ import Calculator from "./components/Calculator";
 import Table from "./components/Table";
 
 
+const tableObj = [
+  {
+    Year: "1",
+    InvestmentValue: "10000",
+    Interest: "9999",
+    TotalInterest: "4454",
+    InvestedCapital: "658"
+  }
+]
 
 function App() {
+
+  const [values, setValues] = useState(tableObj)
+
+
   return (
     <>
       <main className="w-screen h-screen bg-zinc-950 flex flex-col items-center">
@@ -18,7 +31,7 @@ function App() {
         <h1 className="font-sans text-4xl font-black text-zinc-300">Investment Calculator</h1>
 
         <Calculator></Calculator>
-        <Table/>
+        <Table values={tableObj} />
 
 
       </main>
