@@ -2,7 +2,13 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ["Josefin Sans", "sans-serif"], // Aggiungi qui il tuo font
+        roboto: ["Roboto Slab", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 };
+
