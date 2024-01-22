@@ -6,6 +6,7 @@ import { useState } from "react";
 import "./style/App.css";
 import Calculator from "./components/Calculator";
 import Table from "./components/Table";
+import { calculateInvestmentResults, formatter } from "./util/investment";
 
 
 const tableObj = [
@@ -20,7 +21,29 @@ const tableObj = [
 
 function App() {
 
-  const [values, setValues] = useState(tableObj)
+  const [values, setValues] = useState([]); // Inizializzato come array vuoto
+  const [calculatorValues, setCalculatorValues] = useState({
+    initialInvestment: 0,
+    annualInvestment: 0,
+    expectedReturn: 0,
+    duration: 0,
+  });
+
+  function handleCalculatorValuesChange(newValues) {
+    setCalculatorValues(newValues);
+    const investmentResults = calculateInvestmentResults({
+      initialInvestment: parseFloat(newValues.initialInvestment),
+      annualInvestment: parseFloat(newValues.annualInvestment),
+      expectedReturn: parseFloat(newValues.expectedReturn),
+      duration: parseInt(newValues.duration),
+    });
+    setValues(investmentResults);
+  }
+
+  // Funzione per formattare i numeri come valuta, se necessario
+  function formatCurrency(value) {
+    return formatter.format(value);
+  }
 
 
   return (
@@ -30,8 +53,8 @@ function App() {
         <img src="/Logo.png" alt="Logo"  className="w-40"/>
         <h1 className="font-sans text-4xl font-black text-zinc-300">Investment Calculator</h1>
 
-        <Calculator></Calculator>
-        <Table values={tableObj} />
+        <Calculator onValuesChange={handleCalculatorValuesChange} />
+        <Table values={values} formatCurrency={formatCurrency} />
 
 
       </main>
