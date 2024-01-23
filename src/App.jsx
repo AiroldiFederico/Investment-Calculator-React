@@ -22,29 +22,22 @@ const tableObj = [
 function App() {
 
   const [values, setValues] = useState([]); // Inizializzato come array vuoto
-  const [calculatorValues, setCalculatorValues] = useState({
-    initialInvestment: 0,
-    annualInvestment: 0,
-    expectedReturn: 0,
-    duration: 0,
-  });
 
 
   function handleCalculatorValuesChange(newValues) {
-    setCalculatorValues(newValues);
 
-    // Assicurati che tutti i valori siano definiti e non nulli prima di calcolare
-    if (newValues.initialInvestment && newValues.annualInvestment && newValues.expectedReturn && newValues.duration) {
-      const investmentResults = calculateInvestmentResults({
-        initialInvestment: parseFloat(newValues.initialInvestment) || 0,
-        annualInvestment: parseFloat(newValues.annualInvestment) || 0,
-        expectedReturn: parseFloat(newValues.expectedReturn) || 0,
-        duration: parseInt(newValues.duration) || 0,
-      });
-      console.log(investmentResults);
-      setValues(investmentResults);
-    }
-  }
+     //Assicurati che tutti i valori siano definiti e non nulli prima di calcolare
+     if (newValues.initialInvestment && newValues.annualInvestment && newValues.expectedReturn && newValues.duration) {
+       const investmentResults = calculateInvestmentResults({
+         initialInvestment: parseFloat(newValues.initialInvestment) || 0,
+         annualInvestment: parseFloat(newValues.annualInvestment) || 0,
+         expectedReturn: parseFloat(newValues.expectedReturn) || 0,
+         duration: parseInt(newValues.duration) || 0,
+       });
+       console.log(investmentResults);
+       setValues(investmentResults);
+     }
+   }
 
 
   function formatCurrency(value) {
@@ -59,11 +52,9 @@ function App() {
         <img src="/Logo.png" alt="Logo"  className="w-40"/>
         <h1 className="font-sans text-4xl font-black text-zinc-300">Investment Calculator</h1>
 
-        <Calculator onValuesChange={handleCalculatorValuesChange} />
+        <Calculator input={handleCalculatorValuesChange} />
 
         <Table dataValues={values} formatCurrency={formatCurrency} />
-
-        {/* <button onClick={handleStampvalues}>click</button> */}
 
       </main>
     </>

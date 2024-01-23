@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export default function Calculator({onValuesChange}) {
+export default function Calculator({ input }) {
 
     const [userInput, setUserInput] = useState({
         initialInvestment: 10000,
@@ -19,8 +19,10 @@ export default function Calculator({onValuesChange}) {
                 [inputIdentifier]: newValue
             };
         })
-    }
 
+    };
+    
+    input = userInput;
 
     return <section className="w-[40rem] h-[10rem] bg-slate-600 mt-10 rounded p-4 grid grid-cols-2 gap-4">
 
