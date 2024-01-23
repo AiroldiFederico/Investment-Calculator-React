@@ -1,7 +1,7 @@
 
 
 
-export default function Table ({values}) {
+export default function Table ({dataValues, formatCurrency }) {
     return <table className="w-[40rem] bg-slate-800 mt-4 table-auto">
 
         <thead>
@@ -14,13 +14,13 @@ export default function Table ({values}) {
             </tr>
         </thead>
         <tbody>
-            {values.map((value, index) => (
+            {dataValues.map((value, index) => (
                 <tr key={index}>
                     <td className="text-center">{value.Year}</td>
-                    <td className="text-center">{value.InvestmentValue}</td>
-                    <td className="text-center">{value.Interest}</td>
-                    <td className="text-center">{value.TotalInterest}</td>
-                    <td className="text-center">{value.InvestedCapital}</td>
+                    <td className="text-center">{formatCurrency(value.InvestmentValue)}</td>
+                    <td className="text-center">{formatCurrency(value.Interest)}</td>
+                    <td className="text-center">{formatCurrency(value.TotalInterest)}</td>
+                    <td className="text-center">{formatCurrency(value.InvestedCapital)}</td>
                 </tr>
             ))}
         </tbody>

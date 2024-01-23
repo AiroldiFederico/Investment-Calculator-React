@@ -29,22 +29,28 @@ function App() {
     duration: 0,
   });
 
+
   function handleCalculatorValuesChange(newValues) {
     setCalculatorValues(newValues);
-    const investmentResults = calculateInvestmentResults({
-      initialInvestment: parseFloat(newValues.initialInvestment),
-      annualInvestment: parseFloat(newValues.annualInvestment),
-      expectedReturn: parseFloat(newValues.expectedReturn),
-      duration: parseInt(newValues.duration),
-    });
-    setValues(investmentResults);
+
+    // Assicurati che tutti i valori siano definiti e non nulli prima di calcolare
+    if (newValues.initialInvestment && newValues.annualInvestment && newValues.expectedReturn && newValues.duration) {
+      const investmentResults = calculateInvestmentResults({
+        initialInvestment: parseFloat(newValues.initialInvestment) || 0,
+        annualInvestment: parseFloat(newValues.annualInvestment) || 0,
+        expectedReturn: parseFloat(newValues.expectedReturn) || 0,
+        duration: parseInt(newValues.duration) || 0,
+      });
+      console.log(investmentResults);
+      setValues(investmentResults);
+    }
   }
 
-  // Funzione per formattare i numeri come valuta, se necessario
+
   function formatCurrency(value) {
-    return formatter.format(value);
+    return isNaN(value) ? '-' : formatter.format(value);
   }
-
+  
 
   return (
     <>
@@ -54,8 +60,10 @@ function App() {
         <h1 className="font-sans text-4xl font-black text-zinc-300">Investment Calculator</h1>
 
         <Calculator onValuesChange={handleCalculatorValuesChange} />
-        <Table values={values} formatCurrency={formatCurrency} />
 
+        <Table dataValues={values} formatCurrency={formatCurrency} />
+
+        {/* <button onClick={handleStampvalues}>click</button> */}
 
       </main>
     </>
