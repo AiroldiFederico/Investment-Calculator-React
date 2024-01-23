@@ -48,7 +48,7 @@ function App() {
 
 
   function formatCurrency(value) {
-    return isNaN(value) ? '-' : formatter.format(value);
+    return isNaN(value) ? '-' : formatter(value);
   }
   
 
