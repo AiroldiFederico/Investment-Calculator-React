@@ -1,15 +1,22 @@
-# TEMPLATE REACT
-# Progetto di Federico Airoldi
+# Investment Calculator
+## Progetto di Federico Airoldi
 
-Questo repository contiene un progetto di Federico Airoldi. Lo scopo del progetto è quello di fornire un ambiente pratico per esplorare e apprendere varie tecnologie e librerie nel campo dello sviluppo web.
+Il progetto Investment Calculator è un'applicazione web sviluppata da Federico Airoldi. Lo scopo dell'applicazione è fornire un calcolatore interattivo per aiutare gli utenti a pianificare e prevedere la crescita dei loro investimenti nel tempo. Questa applicazione utilizza React, Tailwind CSS e altre tecnologie web moderne per creare un'esperienza utente fluida e interattiva.
+
+## Caratteristiche
+
+- **Calcolo dell'Investimento**: Calcola il valore futuro di un investimento basato su input come l'investimento iniziale, l'investimento annuale, il rendimento atteso e la durata dell'investimento.
+- **Visualizzazione Tabellare**: Visualizza i risultati del calcolo in una tabella facilmente comprensibile, mostrando l'andamento dell'investimento anno per anno.
+- **Interfaccia Utente Intuitiva**: Fornisce un'interfaccia semplice e reattiva per immettere i dati e visualizzare i risultati.
+- **Formattazione Valuta**: Mostra i valori in formato di valuta, rendendo i risultati immediatamente comprensibili.
 
 ## Inizio
 
-Queste istruzioni ti forniranno una copia del progetto in esecuzione sul tuo computer locale a scopo di sviluppo e test. Vedi la sezione "Distribuzione" per note su come distribuire il progetto su un sistema live.
+Per eseguire il progetto localmente, segui queste istruzioni.
 
 ### Prerequisiti
 
-Cosa ti serve per installare il software e come installarlo:
+Per eseguire questo progetto, avrai bisogno di:
 
 ```
 Node.js
@@ -18,45 +25,51 @@ NPM (Node Package Manager)
 
 ### Installazione
 
-Una serie di esempi passo passo che ti dicono come far partire un ambiente di sviluppo in esecuzione:
+Ecco come configurare il progetto:
 
-Clona il repository:
+1. **Clona il Repository**:
+   
+   ```
+   git clone {link repo}
+   ```
 
-```
-git clone {link repo}
-```
+2. **Naviga alla Cartella del Progetto**:
+   
+   ```
+   cd tua-repo
+   ```
 
-Naviga alla cartella del progetto:
+3. **Installa i Pacchetti NPM**:
+   
+   ```
+   npm install
+   ```
 
-```
-cd tua-repo
-```
-
-Installa i pacchetti NPM:
-
-```
-npm install
-```
-
-Avvia il server di sviluppo:
-
-```
-npm run dev
-```
+4. **Avvia il Server di Sviluppo**:
+   
+   ```
+   npm run dev
+   ```
 
 ## Pacchetti Installati
 
-Elenco dei principali pacchetti installati in questo progetto:
+- **React**: Una libreria JavaScript per costruire interfacce utente.
+- **Tailwind CSS**: Un framework CSS utility-first per costruire rapidamente design personalizzati.
+- **Vite**: Un nuovo strumento di build front-end.
+- **postcss**: Uno strumento per trasformare i CSS con JavaScript.
+- **autoprefixer**: Un plugin PostCSS per aggiungere prefissi CSS.
+- **FontAwesome**: Una libreria di icone.
 
-- React: Una libreria JavaScript per costruire interfacce utente.
-- Vite: Un nuovo strumento di build front-end che migliora significativamente l'esperienza di sviluppo.
-- Tailwind CSS: Un framework CSS utility-first per costruire rapidamente design personalizzati.
-- Axios: Un client HTTP basato su promesse per il browser e node.js.
-- postcss
-- autoprefixer
-- FontAwesome
+## Struttura del Progetto
+
+- `App.jsx`: Il componente radice che gestisce lo stato principale e il flusso dei dati.
+- `Calculator.jsx`: Un componente figlio che permette agli utenti di inserire i loro dati di investimento.
+- `Table.jsx`: Un componente figlio che visualizza i risultati del calcolo in una tabella.
+- `investment.js`: Contiene la logica di calcolo dell'investimento e la formattazione della valuta.
 
 ## Versione
+
+v-25.01.24
 
 ## Autore
 
@@ -64,4 +77,5 @@ Elenco dei principali pacchetti installati in questo progetto:
 
 ## Licenza
 
-Questo progetto non ha licenze
+Questo progetto è privo di licenze specifiche e può essere utilizzato come base per ulteriori sviluppi o apprendimento personale.
+

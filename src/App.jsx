@@ -6,7 +6,7 @@ import { useState } from "react";
 import "./style/App.css";
 import Calculator from "./components/Calculator";
 import Table from "./components/Table";
-import { calculateInvestmentResults, formatter } from "./util/investment";
+
 
 
 const tableObj = [
@@ -29,15 +29,16 @@ function App() {
   });
 
   function handleChange( inputIdentifier, newValue ) {
-    setUserInput(prevUserInput => {
+    setUserInput((prevUserInput) => {
         return {
             ...prevUserInput,
-            [inputIdentifier]: newValue
+            [inputIdentifier]: +newValue
         };
-    })
+    });
 
   };
 
+  const inputIsValid = userInput.duration >= 1;
   
 
   // function formatCurrency(value) {
@@ -54,7 +55,8 @@ function App() {
 
         <Calculator onChange={handleChange} userInput={userInput} />
 
-        <Table input={tableObj} />
+        { inputIsValid && <Table input={userInput} />}
+        { !inputIsValid && <p className="mt-5">Please enter a duration greater than zero.</p>}
 
       </main>
     </>
