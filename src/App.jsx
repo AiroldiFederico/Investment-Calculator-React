@@ -21,28 +21,28 @@ const tableObj = [
 
 function App() {
 
-  const [values, setValues] = useState([]); // Inizializzato come array vuoto
+  const [userInput, setUserInput] = useState({
+    initialInvestment: 10000,
+    annualInvestment: 1200,
+    expectedReturn: 6,
+    duration: 10,
+  });
 
+  function handleChange( inputIdentifier, newValue ) {
+    setUserInput(prevUserInput => {
+        return {
+            ...prevUserInput,
+            [inputIdentifier]: newValue
+        };
+    })
 
-  function handleCalculatorValuesChange(newValues) {
+  };
 
-     //Assicurati che tutti i valori siano definiti e non nulli prima di calcolare
-     if (newValues.initialInvestment && newValues.annualInvestment && newValues.expectedReturn && newValues.duration) {
-       const investmentResults = calculateInvestmentResults({
-         initialInvestment: parseFloat(newValues.initialInvestment) || 0,
-         annualInvestment: parseFloat(newValues.annualInvestment) || 0,
-         expectedReturn: parseFloat(newValues.expectedReturn) || 0,
-         duration: parseInt(newValues.duration) || 0,
-       });
-       console.log(investmentResults);
-       setValues(investmentResults);
-     }
-   }
+  
 
-
-  function formatCurrency(value) {
-    return isNaN(value) ? '-' : formatter(value);
-  }
+  // function formatCurrency(value) {
+  //   return isNaN(value) ? '-' : formatter(value);
+  // }
   
 
   return (
@@ -52,9 +52,9 @@ function App() {
         <img src="/Logo.png" alt="Logo"  className="w-40"/>
         <h1 className="font-sans text-4xl font-black text-zinc-300">Investment Calculator</h1>
 
-        <Calculator input={handleCalculatorValuesChange} />
+        <Calculator onChange={handleChange} userInput={userInput} />
 
-        <Table dataValues={values} formatCurrency={formatCurrency} />
+        <Table input={tableObj} />
 
       </main>
     </>
