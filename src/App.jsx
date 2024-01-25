@@ -1,5 +1,5 @@
 
-//Reacr Hooks
+//React Hooks
 import { useState } from "react";
 
 //import
@@ -9,16 +9,7 @@ import Table from "./components/Table";
 
 
 
-const tableObj = [
-  {
-    Year: "1",
-    InvestmentValue: "10000",
-    Interest: "9999",
-    TotalInterest: "4454",
-    InvestedCapital: "658"
-  }
-]
-
+// eslint-disable-next-line no-unused-vars
 function App() {
 
   const [userInput, setUserInput] = useState({
@@ -36,14 +27,9 @@ function App() {
         };
     });
 
-  };
+  }
 
   const inputIsValid = userInput.duration >= 1;
-  
-
-  // function formatCurrency(value) {
-  //   return isNaN(value) ? '-' : formatter(value);
-  // }
   
 
   return (
